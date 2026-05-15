@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>❤️ 6 Meses ❤️</title>
+    <title>❤️ 6 Meses de Amor ❤️</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body {
@@ -25,18 +25,24 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
+        /* Estilo para el botón de YouTube */
+        .youtube-link {
+            display: inline-block; margin-top: 15px; padding: 10px 20px;
+            background: #ff0000; color: white; text-decoration: none;
+            border-radius: 25px; font-weight: bold; font-size: 0.9rem;
+            transition: transform 0.3s; border: 2px solid white;
+        }
+        .youtube-link:hover { transform: scale(1.1); background: #c00000; }
+
         #game-container {
             width: 100%; height: 300px; margin: 15px auto; 
             background: rgba(255, 255, 255, 0.05); 
             border: 2px dashed rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            position: relative; overflow: hidden;
+            border-radius: 20px; position: relative; overflow: hidden;
+            touch-action: none;
         }
 
-        .game-item {
-            position: absolute; font-size: 2.8rem; cursor: pointer;
-            z-index: 5; transition: transform 0.1s;
-        }
+        .game-item { position: absolute; font-size: 2.8rem; cursor: pointer; z-index: 5; }
 
         #surprise-image-container {
             display: none; position: absolute; top: 0; left: 0;
@@ -45,14 +51,10 @@
 
         #surprise-image-container img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Estilo del Ticket de Premio */
         #premio-ticket {
-            display: none;
-            background: #fff; color: #333;
-            padding: 20px; border-radius: 15px;
-            border: 4px dashed #ff4081;
-            margin-top: 20px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            display: none; background: #fff; color: #333;
+            padding: 20px; border-radius: 15px; border: 4px dashed #ff4081;
+            margin-top: 20px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
             animation: popIn 0.5s ease-out;
         }
 
@@ -65,7 +67,7 @@
         }
         .numero { display: block; font-size: 1.4rem; font-weight: bold; color: #ffb3c1; }
         
-        #boda-anillo { cursor: pointer; display: inline-block; transition: all 0.3s; font-size: 1.5rem; }
+        #boda-anillo { cursor: pointer; display: inline-block; transition: all 0.3s; font-size: 1.8rem; }
     </style>
 </head>
 <body>
@@ -78,6 +80,10 @@
                 "Hola corazón mío, mi poto loco jejeje. Ya son 6 meses caminando juntitos. Superando la distancia, aprendiendo de cada error y arreglando todo conversando. Tenerte en mi vida es lo más importante que tengo. Te amo infinitamente, María Constanza. <span id="boda-anillo">💍</span>"
             </p>
 
+            <a href="https://www.youtube.com/watch?v=tu-link-aqui" target="_blank" class="youtube-link">
+                🎵 Haz clic aquí para nuestra canción
+            </a>
+
             <div id="premio-ticket">
                 <h3 style="margin: 0; color: #ff4081;">🎉 ¡PREMIO DESBLOQUEADO! 🎉</h3>
                 <p style="font-size: 0.9rem; margin: 10px 0;">Este ticket es válido por un premio sorpresa que aparecerá cualquier día que estés en Chile.</p>
@@ -87,16 +93,12 @@
                 <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">📸 Saca una captura de pantalla ahora.</p>
             </div>
 
-            <p style="font-weight: bold; color: #ffb3c1; margin-top: 15px; font-size: 0.9rem;">¡Atrapa 20 ❤️! Cuidado: las 🍎 restan puntos.</p>
-            
+            <p style="font-weight: bold; color: #ffb3c1; margin-top: 25px; font-size: 0.9rem;">¡Atrapa 20 ❤️! Cuidado: las 🍎 restan puntos.</p>
             <div style="font-size: 1.2rem; color: #ffeb3b; font-weight: bold;">Puntos: <span id="current-score">0</span> / 20</div>
 
             <div id="game-container">
                 <div id="surprise-image-container">
                     <img src="sorpresa.jpg" alt="Sorpresa">
-                    <div style="position: absolute; bottom: 0; background: rgba(0,0,0,0.8); width: 100%; padding: 10px 0; font-size: 0.9rem; color: #ffeb3b;">
-                        ✨ Segunda Imagen Desbloqueada ✨<br>¡Nuestra próxima cita!
-                    </div>
                 </div>
             </div>
 
@@ -107,45 +109,20 @@
                 <div class="tiempo-item"><span class="numero" id="min-j">0</span>Min</div>
                 <div class="tiempo-item"><span class="numero" id="seg-j">0</span>Seg</div>
             </div>
-
-            <h2>Para Casarnos</h2>
-            <div class="contador-container">
-                <div class="tiempo-item"><span class="numero" id="dias-b">0</span>Días</div>
-                <div class="tiempo-item"><span class="numero" id="horas-b">0</span>Hrs</div>
-                <div class="tiempo-item"><span class="numero" id="min-b">0</span>Min</div>
-                <div class="tiempo-item"><span class="numero" id="seg-b">0</span>Seg</div>
-            </div>
-
-            <h2>Para nuestros 7 meses...</h2>
-            <div class="contador-container">
-                <div class="tiempo-item"><span class="numero" id="dias-7">0</span>Días</div>
-                <div class="tiempo-item"><span class="numero" id="horas-7">0</span>Hrs</div>
-                <div class="tiempo-item"><span class="numero" id="min-7">0</span>Min</div>
-                <div class="tiempo-item"><span class="numero" id="seg-7">0</span>Seg</div>
-            </div>
         </div>
     </div>
 
     <script>
-        // --- RELOJES ---
+        // --- RELOJ ---
         const fInicio = new Date('2025-11-15T00:00:00');
-        const fSiete = new Date('2026-06-15T00:00:00');
-        const fBoda = new Date('2027-07-15T00:00:00');
-
-        function updateClocks() {
-            const now = new Date();
-            const calc = (target, idPrefix, isPast = false) => {
-                const diff = isPast ? now - target : target - now;
-                document.getElementById('dias-'+idPrefix).innerText = Math.max(0, Math.floor(diff/86400000));
-                document.getElementById('horas-'+idPrefix).innerText = Math.max(0, Math.floor((diff%86400000)/3600000));
-                document.getElementById('min-'+idPrefix).innerText = Math.max(0, Math.floor((diff%3600000)/60000));
-                document.getElementById('seg-'+idPrefix).innerText = Math.max(0, Math.floor((diff%60000)/1000));
-            };
-            calc(fInicio, 'j', true);
-            calc(fBoda, 'b');
-            calc(fSiete, '7');
+        function updateClock() {
+            const diff = new Date() - fInicio;
+            document.getElementById('dias-j').innerText = Math.floor(diff/86400000);
+            document.getElementById('horas-j').innerText = Math.floor((diff%86400000)/3600000);
+            document.getElementById('min-j').innerText = Math.floor((diff%3600000)/60000);
+            document.getElementById('seg-j').innerText = Math.floor((diff%60000)/1000);
         }
-        setInterval(updateClocks, 1000);
+        setInterval(updateClock, 1000);
 
         // --- JUEGO ---
         const container = document.getElementById('game-container');
@@ -178,36 +155,40 @@
         }
         setInterval(createItem, 750);
 
-        // --- TRIVIA DEL ANILLO ---
-        let intentos = 3;
-        let activa = true;
+        // --- LOS 7 TOQUES DEL ANILLO + TRIVIA ---
+        let toquesAnillo = 0;
+        const mensajesAnillo = [
+            "¿ Aquí ya no hay nada ? 💍",
+            " ¿ O sí? ",
+            " Igual podrias buscar en otra parte no ? ",
+            " Usted es muy insistente parece señorita ",
+            " Bueno, vamos a darle en el gusto ",
+            "¡Uno más para el final!",
+            "¡DESBLOQUEADO! 🌌 Ahora responde esto:"
+        ];
 
         document.getElementById('boda-anillo').onclick = () => {
-            if (!activa) return;
-
-            alert("✨ Has Desbloqueado una Pregunta secreta.\n\nSi aciertas, ganarás un premio para cuando estés en Chile. ¡Tienes 3 oportunidades!");
-            
-            const r = prompt("¿Cuál es la Película Favorita de Hugo?\n\nA) Volver al Futuro\nB) Interestellar\nC) Piratas del Caribe\nD) Proyecto Hail Mary\nE) Todas las Anteriores\n\n(Escribe solo la letra)");
-
-            if (r && r.toUpperCase() === 'B') {
-                activa = false;
-                document.getElementById('premio-ticket').style.display = 'block';
-                document.getElementById('boda-anillo').style.opacity = "0.5";
-                confetti({ particleCount: 200, spread: 100, colors: ['#ffeb3b', '#ff4081'] });
-                alert("¡EXACTO! 🌌 Has desbloqueado tu ticket de regalo. Saca la captura de pantalla ahora mismo.");
-            } else {
-                intentos--;
-                if (intentos > 0) {
-                    alert("¡Incorrecto! 😰 Te quedan " + intentos + " intentos.");
-                } else {
-                    alert("Has agotado tus intentos. El secreto se ha bloqueado. 🔒");
-                    activa = false;
-                    document.getElementById('boda-anillo').style.filter = "grayscale(100%)";
-                }
+            if (toquesAnillo < 6) {
+                alert(mensajesAnillo[toquesAnillo]);
+                toquesAnillo++;
+            } else if (toquesAnillo === 6) {
+                alert(mensajesAnillo[6]);
+                iniciarTrivia();
+                toquesAnillo++; // Para que no se repita
             }
         };
 
-        window.onload = () => { updateClocks(); };
+        function iniciarTrivia() {
+            const r = prompt("¿Cuál es la Película Favorita de Hugo?\n\nA) Volver al Futuro\nB) Interestellar\nC) Piratas del Caribe\nD) Proyecto Hail Mary\nE) Todas las Anteriores\n\n(Escribe solo la letra)");
+            if (r && r.toUpperCase() === 'B') {
+                document.getElementById('premio-ticket').style.display = 'block';
+                confetti({ particleCount: 200, spread: 100, colors: ['#ffeb3b', '#ff4081'] });
+                alert("¡EXACTO! 🌌 Has ganado tu ticket de premio. Saca la captura ahora.");
+            } else {
+                alert("¡Incorrecto! Recarga la página e intenta los 7 toques otra vez 😰");
+                toquesAnillo = 0;
+            }
+        }
     </script>
 </body>
 </html>
