@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>❤️Feliz 6 Meses de Amor de mi VIda❤️</title>
+    <title>❤️ 7 Meses de Amor ❤️</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body {
@@ -73,15 +73,15 @@
 <body>
 
     <div class="content">
-        <h1>❤️ Feliz Medio Año Mi Vida ❤️</h1>
+        <h1>❤️ Feliz 7 Meses Mi Vida ❤️</h1>
 
         <div class="dedicatoria-box">
             <p style="font-size: 1.05rem; line-height: 1.5;">
-                "💍Hola corazón mío, mi potito loco jijijiji. Ya son 6 meses caminando juntitos. Superando la distancia, aprendiendo de cada error y arreglando todo con amor. Tenerte en mi vida es lo más importante que me ha pasado en mi vida. Te amo infinitamente Esposa Mía, Te Amo María Constanza. <span id="boda-anillo">💍</span>"
+                "Hola corazón mío, mi poto loco jejeje. Ya son 7 meses caminando juntitos. Superando la distancia, aprendiendo de cada error y arreglando todo conversando. Tenerte en mi vida es lo más importante que tengo. Te amo infinitamente, María Constanza. <span id="boda-anillo">💍</span>"
             </p>
 
             <a href="https://www.youtube.com/watch?v=RCZQaFu9pn0" target="_blank" class="youtube-link">
-                🎵 Haz clic aquí para nuestra canción 💍
+                🎵 Haz clic aquí para nuestra canción
             </a>
 
             <div id="premio-ticket">
@@ -120,12 +120,12 @@
                 <div class="tiempo-item"><span class="numero" id="seg-b">0</span>Seg</div>
             </div>
 
-            <h2>Para nuestros 7 meses...</h2>
+            <h2>Para nuestros 8 meses...</h2>
             <div class="contador-container">
-                <div class="tiempo-item"><span class="numero" id="dias-7">0</span>Días</div>
-                <div class="tiempo-item"><span class="numero" id="horas-7">0</span>Hrs</div>
-                <div class="tiempo-item"><span class="numero" id="min-7">0</span>Min</div>
-                <div class="tiempo-item"><span class="numero" id="seg-7">0</span>Seg</div>
+                <div class="tiempo-item"><span class="numero" id="dias-8">0</span>Días</div>
+                <div class="tiempo-item"><span class="numero" id="horas-8">0</span>Hrs</div>
+                <div class="tiempo-item"><span class="numero" id="min-8">0</span>Min</div>
+                <div class="tiempo-item"><span class="numero" id="seg-8">0</span>Seg</div>
             </div>
         </div>
     </div>
@@ -133,8 +133,8 @@
     <script>
         // --- RELOJES ---
         const fInicio = new Date('2025-11-15T00:00:00');
-        const fBoda = new Date('2027-07-15T00:00:00'); // Fecha tentativa boda
-        const fSieteMeses = new Date('2026-06-15T00:00:00');
+        const fBoda = new Date('2027-07-15T00:00:00'); 
+        const fOchoMeses = new Date('2026-07-15T00:00:00'); 
 
         function updateClocks() {
             const ahora = new Date();
@@ -162,7 +162,13 @@
             // Calculo Futuros
             const calcFuturo = (target, idPrefix) => {
                 const diff = target - ahora;
-                if(diff <= 0) return;
+                if(diff <= 0) {
+                    document.getElementById('dias-'+idPrefix).innerText = 0;
+                    document.getElementById('horas-'+idPrefix).innerText = 0;
+                    document.getElementById('min-'+idPrefix).innerText = 0;
+                    document.getElementById('seg-'+idPrefix).innerText = 0;
+                    return;
+                }
                 document.getElementById('dias-'+idPrefix).innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
                 document.getElementById('horas-'+idPrefix).innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 document.getElementById('min-'+idPrefix).innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -170,7 +176,7 @@
             };
 
             calcFuturo(fBoda, 'b');
-            calcFuturo(fSieteMeses, '7');
+            calcFuturo(fOchoMeses, '8');
         }
         setInterval(updateClocks, 1000);
 
@@ -205,16 +211,16 @@
         }
         setInterval(createItem, 750);
 
-        // --- LOS 7 TOQUES DEL ANILLO ---
+        // --- LOS 7 TOQUES DEL ANILLO Y NUEVA PREGUNTA REQUISITO ---
         let toquesAnillo = 0;
         const mensajesAnillo = [
-            "¿ Aquí ya no hay nada ? 💍",
-            " ¿ O sí? ",
-            " Igual podrias buscar en otra parte no ? ",
-            " Usted es muy insistente parece señorita ",
+            "¿ Jajaja segura que ya te lo sabes ? 💍",
+            " ¿ O no? ",
+            " Igual podrias buscar en otra parte no es asi ? ",
+            " Usted es muy insistente parece mamita ",
             " Bueno, vamos a darle en el gusto ",
             "¡Uno más para el final!",
-            "¡DESBLOQUEADO! 🌌 Ahora responde esto:"
+            "¡DESBLOQUEADO! 🌌 Pregunta especial:"
         ];
 
         document.getElementById('boda-anillo').onclick = () => {
@@ -223,20 +229,21 @@
                 toquesAnillo++;
             } else if (toquesAnillo === 6) {
                 alert(mensajesAnillo[6]);
-                iniciarTrivia();
+                hacerPreguntaSorpresa();
                 toquesAnillo++; 
             }
         };
 
-        function iniciarTrivia() {
-            const r = prompt("¿Cuál es la Película Favorita de Hugo?\n\nA) Volver al Futuro\nB) Interestellar\nC) Piratas del Caribe\nD) Proyecto Hail Mary\nE) Todas las Anteriores\n\n(Escribe solo la letra)");
-            if (r && r.toUpperCase() === 'B') {
+        function hacerPreguntaSorpresa() {
+            const respuesta = prompt("¿En dónde te gustaría la Sorpresa?\n\nA) Al aire libre\nB) En una parte donde se pueda comer algo rico\n\n(¡Para hacer válido tu premio final cuando estés en Chile, debes mostrar todas las capturas de pantalla de los juegos y Easter Eggs que has sacado a lo largo de todos estos meses!)");
+            
+            if (respuesta && (respuesta.toUpperCase() === 'A' || respuesta.toUpperCase() === 'B')) {
                 document.getElementById('premio-ticket').style.display = 'block';
                 confetti({ particleCount: 200, spread: 100, colors: ['#ffeb3b', '#ff4081'] });
-                alert("¡EXACTO! 🌌 Has ganado tu ticket de premio.");
+                alert("¡Elección guardada en el corazón! ❤️ Tu ticket de premio ha sido desbloqueado abajo. Saca captura de todo y guárdala muy bien.");
             } else {
-                alert("¡Incorrecto! Recarga la página e intenta los 7 toques otra vez 😰");
-                toquesAnillo = 0;
+                alert("Por favor elige una opción válida (A o B) para desbloquear el ticket del premio de este mes 🥺");
+                toquesAnillo = 6; // Permite reintentar de inmediato
             }
         }
     </script>
