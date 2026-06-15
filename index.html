@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>❤️ 7 Meses de Amor ❤️</title>
+    <title>❤️ 7 Meses de puro Amor ❤️</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body {
@@ -73,22 +73,22 @@
 <body>
 
     <div class="content">
-        <h1>❤️ Feliz 7 Meses Mi Vida ❤️</h1>
+        <h1>❤️ Feliz 7 Meses Vida Mia ❤️</h1>
 
         <div class="dedicatoria-box">
-            <p style="font-size: 1.05rem; line-height: 1.5;">
-                "Hola corazón mío, mi poto loco jejeje. Ya son 7 meses caminando juntitos. Superando la distancia, aprendiendo de cada error y arreglando todo conversando. Tenerte en mi vida es lo más importante que tengo. Te amo infinitamente, María Constanza. <span id="boda-anillo">💍</span>"
+        <p style="font-size: 1.05rem; line-height: 1.5;">
+                  "Hola mi corazón bello mío, agradezco enormemente el tiempo que has estado junto a mí, agradezco también el amor que me has brindado, el apoyo, la comprensión y mucho más. Sin duda eres esa persona que querré en mi vida en todo momento, mi amor. Te Amo muchito mi vidita mía. Ahora ya no hay trivia. Solo hay una sola pregunta en la cual tú tendrás que escoger. Suerte mi vida. <span id="boda-anillo">💍</span>"
             </p>
 
-            <a href="https://www.youtube.com/watch?v=RCZQaFu9pn0" target="_blank" class="youtube-link">
+            <a href="https://www.youtube.com/watch?v=sKoK3XnTd3g" target="_blank" class="youtube-link">
                 🎵 Haz clic aquí para nuestra canción
             </a>
 
             <div id="premio-ticket">
                 <h3 style="margin: 0; color: #ff4081;">🎉 ¡PREMIO DESBLOQUEADO! 🎉</h3>
-                <p style="font-size: 0.9rem; margin: 10px 0;">Este ticket es válido por un premio sorpresa que aparecerá cualquier día que estés en Chile.</p>
+                <p style="font-size: 0.9rem; margin: 10px 0;">Este ticket es válido por un segundo premio sorpresa que aparecerá cualquier día que estés en Chile ya que tienes uno este sera el segundo.</p>
                 <div style="font-weight: bold; font-size: 1.1rem; border-top: 1px solid #ccc; padding-top: 10px;">
-                    CÓDIGO: AMOR-CHILE-2026
+                    CÓDIGO: AMOR-Num2-CHILE-2026
                 </div>
                 <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">📸 Saca una captura de pantalla ahora.</p>
             </div>
@@ -211,7 +211,7 @@
         }
         setInterval(createItem, 750);
 
-        // --- LOS 7 TOQUES DEL ANILLO Y NUEVA PREGUNTA REQUISITO ---
+// --- LOS 7 TOQUES DEL ANILLO Y NUEVA PREGUNTA REQUISITO ---
         let toquesAnillo = 0;
         const mensajesAnillo = [
             "¿ Jajaja segura que ya te lo sabes ? 💍",
@@ -235,7 +235,7 @@
         };
 
         function hacerPreguntaSorpresa() {
-            const respuesta = prompt("¿En dónde te gustaría la Sorpresa?\n\nA) Al aire libre\nB) En una parte donde se pueda comer algo rico\n\n(¡Para hacer válido tu premio final cuando estés en Chile, debes mostrar todas las capturas de pantalla de los juegos y Easter Eggs que has sacado a lo largo de todos estos meses!)");
+            const respuesta = prompt("¿En dónde te gustaría la Sorpresa?\n\nA) Al aire libre\nB) En una parte donde se pueda comer algo rico\n\n(¡Para hacer válido tu premio final cuando estés en Chile, debes mostrar todas las capturas de pantalla de los juegos y Easter Eggs que has sacado a lo largo de todos estos meses cuando estemos en Chile. Ya lo sabes y no lo olvides!)");
             
             if (respuesta && (respuesta.toUpperCase() === 'A' || respuesta.toUpperCase() === 'B')) {
                 document.getElementById('premio-ticket').style.display = 'block';
@@ -243,7 +243,7 @@
                 alert("¡Elección guardada en el corazón! ❤️ Tu ticket de premio ha sido desbloqueado abajo. Saca captura de todo y guárdala muy bien.");
             } else {
                 alert("Por favor elige una opción válida (A o B) para desbloquear el ticket del premio de este mes 🥺");
-                toquesAnillo = 6; // Permite reintentar de inmediato
+                toquesAnillo = 5; // <--- CORREGIDO: Vuelve a 5 para que el próximo clic sume 1 y sea un 6 directo.
             }
         }
     </script>
